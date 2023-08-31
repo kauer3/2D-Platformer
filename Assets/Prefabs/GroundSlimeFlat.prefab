@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5963165617498826754}
   - component: {fileID: 4447183267944002600}
   - component: {fileID: 7892714604064006820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundSlimeFlat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

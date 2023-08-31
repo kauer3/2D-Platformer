@@ -299,7 +299,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
-    m_EventTreshold: -0.1
+    m_EventTreshold: 0.1
   - m_ConditionMode: 2
     m_ConditionEvent: Grounded
     m_EventTreshold: 0

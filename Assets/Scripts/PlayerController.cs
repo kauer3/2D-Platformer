@@ -29,6 +29,7 @@ public class NewBehaviourScript : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anim.SetBool("Running", false);
     }
 
     void Update()
@@ -46,7 +47,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         anim.SetFloat("SpeedY", rb.velocity.y);
         anim.SetBool("Grounded", grounded);
-        anim.SetBool("Running", false);
+        
     }
 
     void HandleMovement()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5804106346210745868}
   - component: {fileID: 9133329672064435237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundMetalFlatBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

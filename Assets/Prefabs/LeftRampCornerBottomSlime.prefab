@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6108410524626352465}
   - component: {fileID: 295023406534195716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftRampCornerBottomSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &295023406534195716
 SpriteRenderer:
