@@ -5,10 +5,13 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public LevelManager levelManager;
+    public AudioSource checkpointSound;
+    public bool respawning;
 
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        checkpointSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -16,11 +19,24 @@ public class Checkpoint : MonoBehaviour
         
     }
 
+    public void SetRespawningState()
+    {
+        respawning = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "Player")
         {
-            levelManager.activeCheckpoint = gameObject;
+            if (respawning)
+            {
+                respawning = false;
+            }
+            else
+            {
+                levelManager.activeCheckpoint = this;
+                checkpointSound.Play();
+            }
         }
     }
 }

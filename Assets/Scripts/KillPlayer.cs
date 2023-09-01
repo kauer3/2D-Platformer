@@ -5,10 +5,12 @@ using UnityEngine;
 public class KillPlayer : MonoBehaviour
 {
     public LevelManager levelManager;
+    public AudioSource deathSound;
 
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>(); 
+        deathSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -21,6 +23,7 @@ public class KillPlayer : MonoBehaviour
        if(other.name == "Player")
         {
             levelManager.RespawnPlayer();
+            deathSound.Play();
         }
     }
 }

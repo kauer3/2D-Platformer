@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource jumpSound;
+    public AudioSource dashSound;
+    public AudioSource[] audios;
+    public Transform groundProbe;
+    private Animator anim;
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
+
     public float moveSpeed = 3f;
     public float jumpHeight = 1f;
 
     public bool grounded;
     public float groundProbeRadius = 0.1f;
     public LayerMask groundLayer;
-
-    public Transform groundProbe;
-    private Animator anim;
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
 
     private int jumpCounter = 0;
 
@@ -30,6 +33,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim.SetBool("Running", false);
+        anim.SetBool("Dashing", false);
+        audios = GetComponents<AudioSource>();
+        jumpSound = audios[0];
+        dashSound = audios[1];
     }
 
     void Update()
@@ -73,6 +80,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
             anim.SetTrigger("Jump");
             jumpCounter++;
+            jumpSound.Play();
         }
     }
 
@@ -99,8 +107,9 @@ public class PlayerController : MonoBehaviour
                 }
                 rb.gravityScale = 0f;
                 rb.velocity = new Vector2(dashVelocity, 0f);
+                anim.SetBool("Dashing", true);
                 dashState = "dashing";
-                Debug.Log(dashState);
+                dashSound.Play();
             }
         }
         else if (dashState == "dashing")
@@ -111,8 +120,8 @@ public class PlayerController : MonoBehaviour
                 dashTimer = maxDash;
                 rb.gravityScale = 2;
                 rb.velocity = savedVelocity;
+                anim.SetBool("Dashing", false);
                 dashState = "cooldown";
-                Debug.Log(dashState);
             }
         }
         else if (dashState == "cooldown")
@@ -122,7 +131,6 @@ public class PlayerController : MonoBehaviour
             {
                 dashTimer = 0;
                 dashState = "ready";
-                Debug.Log(dashState);
             }
         }
     }

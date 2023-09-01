@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject activeCheckpoint;
+    public Checkpoint activeCheckpoint;
     private PlayerController player;
 
     void Start()
@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        activeCheckpoint.SetRespawningState();
         player.transform.position = activeCheckpoint.transform.position;
     }
 }
