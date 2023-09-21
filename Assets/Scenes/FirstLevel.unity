@@ -5559,7 +5559,7 @@ MonoBehaviour:
   jumpSound: {fileID: 0}
   dashSound: {fileID: 0}
   audios: []
-  groundProbe: {fileID: 0}
+  groundProbe: {fileID: 1892559505}
   moveSpeed: 3
   jumpHeight: 10
   grounded: 0
