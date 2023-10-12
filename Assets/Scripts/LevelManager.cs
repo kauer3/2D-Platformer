@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public bool enabledLevel1 = true;
+    public bool enabledLevel2 = false;
     public Checkpoint activeCheckpoint;
     private PlayerController player;
 
@@ -19,6 +21,7 @@ public class LevelManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        player = FindObjectOfType<PlayerController>();
         activeCheckpoint.SetRespawningState();
         player.transform.position = activeCheckpoint.transform.position;
     }
